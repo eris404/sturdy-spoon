@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Advancement Central</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet"> 
+
+<style>
+BODY {
+	 background-color:#f6f6f6;
+	 color:#000000;
+	 font-family: "Montserrat","Segoe UI", "San Francisco", "Roboto", Helvetica, Arial, sans-serif;
+	 font-size:16px;
+}
+
+.title{
+	/*font-family: 'Abril Fatface', Garamond, serif;*/
+	color:#41403D;
+	font-weight:700;
+
+}
+
+
+.page{
+
+	max-width:2000px;
+	margin: 0 auto;
+}
+
+.page-interior{
+
+	width:90%;
+	margin:0 auto;
+}
+
+.icon-position-bottom{
+	position:relative;
+	margin-bottom:-30px;
+	left:97%;
+
+}
+
+.nav LI A {
+padding: 25px;
+color: #4C463F;
+text-transform:uppercase;
+}
+
+.nav LI A:hover {
+color: #364D47;
+background-color:#FFFFFF;
+} 
+
+.shadow-box{
+	background-color:#FFFFFF;
+	border-radius:3px;
+	 box-shadow: 1px 1px 16px 3px #e4e4e4;
+}
+
+.border-bottom-blue{
+	border-bottom: solid 10px #00afd3;
+}
+
+.border-bottom-red{
+	border-bottom: solid 10px #d94f46;
+}
+
+.border-bottom-orange{
+	border-bottom: solid 10px #E56322;
+}
+
+.border-bottom-green{
+	border-bottom: solid 10px #03C242;
+}
+
+.font-blue{
+	color:#00afd3;
+}
+
+.font-red{
+	color: #d94f46;
+}
+
+.font-orange{
+	color: #E56322;
+}
+
+.font-green{
+	color: #03C242;
+}
+
+.p-a-1{
+	padding: 1rem;
+}
+
+.p-a-2{
+	padding: 2rem;
+}
+
+.p-a-3{
+	padding: 3rem;
+}
+
+.p-l-1{
+padding-left: 1rem;
+
+}
+
+.m-b-1{
+ margin-bottom: 1rem;
+}
+
+.m-b-2{
+ margin-bottom: 2rem;
+}
+
+.m-b-3{
+ margin-bottom: 3rem;
+}
+
+.m-t-1{
+ margin-top: 1rem;
+}
+
+.m-t-2{
+ margin-top: 2rem;
+}
+
+.m-t-3{
+ margin-top: 3rem;
+}
+
+#Override .navbar-text{
+padding:0;
+margin:0;
+}
+
+/*HOVER ANIMATION */
+
+
+.photo-container {
+  background: #0f0523 50% 50% / cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+.photo-container::before {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(rgba(67, 17, 51, 0.5)), to(#000320));
+  background: linear-gradient(transparent, rgba(67, 17, 51, 0.5), #000320);
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.hover-col:hover .photo-container {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+}
+
+.slide {
+  background: rgba(25, 1, 21, 0.8);
+  padding: 0 1.5rem;
+}
+
+
+.hover-col {
+  overflow: hidden;
+  position: relative;
+}
+
+.hover-col {
+  color: #fff;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-height: 260px;
+  position: relative;
+}
+.hover-col h2 {
+  font-weight: 300;
+  font-size: 1.33333rem;
+  line-height: 1.25;
+  margin: 0;
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* 
+    Visibility delay gives the previously hovered element time to slide out before disappearing.
+    Remove the `visibility` transition to slide in current element without sliding out previous element
+  */
+  -webkit-transition: all 0.275s ease-in-out, visibility 0s 0.275s;
+  transition: all 0.275s ease-in-out, visibility 0s 0.275s;
+  visibility: hidden;
+  will-change: transform;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+.hover-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+
+.hover-row:hover ~ .hover-row .slide {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+.hover-row:hover .slide {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.hover-row:hover .hover-col:hover ~ .col .slide {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+.hover-row:hover .hover-col:hover .slide {
+  -webkit-transform: none;
+          transform: none;
+  visibility: visible;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+
+/* 
+accent colors
+
+green: #299D65
+blue: #00afd3
+red: #d94f46
+orange: #E56322
+
+*/
+
+
+
+</style>
+</head>
+<body>
+
+	<div class="page" id="Override">
+	<div class="page-interior">
+
+		<div class="row">
+		
+
+			<nav class="navbar col-xs-2 col-sm-12" style="margin:0 auto;">
+			<div>
+				<div class="hidden-xs navbar-header">
+				<div class="navbar-text title" style="padding:20px 50px 20px 0; font-size:210%; text-transform:uppercase; text-align:left; color:#4C463F">
+					Advancement Central
+					</div>
+				</div>
+				<ul class="nav navbar-nav text-center">
+					<li><a href="#"><span class="fa fa-home fa-2x"></span><br/><span class="hidden-xs">Home</span></a></li>
+					<li><a href="#"><span class="fa fa-wrench fa-2x"></span><br/><span class="hidden-xs">My Tools</span></a></li>
+					<li><a href="#"><span class="fa fa-paper-plane fa-2x"></span><br/><span class="hidden-xs">Requests</span></a></li>
+					<li><a href="#"><span class="fa fa-info-circle fa-2x"></span><br/><span class="hidden-xs">Knowledge</a></span></li>
+					
+				</ul>
+	</div>
+			</nav>
+
+			<main class="col-xs-10 col-sm-12 m-t-2">
+		
+			<div class="row">
+						<div class="col-md-4 col-sm-4 m-b-3">
+					<div class="shadow-box p-a-3 border-bottom-orange">
+					<h2 class="title">Upcoming Events</h2>
+					College of Education Alumni Reception&mdash;May 2<br/>
+					College of Law Alumni Awards Luncheon&mdash;May 3<br/>
+					Tea at the Drake Hotel *FULL*&mdash;May 5<br/>
+					Young Alumni Seminar: Perfecting the Sales Pitch&mdash;May 8<br/>
+					DePaul Symphony Orchestra Spring Gala Concert&mdash;May 25<br/>
+					<div class="icon-position-bottom">
+						<span class="fa fa-calendar fa-2x font-orange"></span>
+						</div>
+					</div>
+					</div>
+
+				
+										<div class="col-md-4 col-sm-4 m-b-3">
+					<div class="shadow-box  border-bottom-blue p-a-3">
+					<h2 class="title">Advancement News</h2>
+					<ol class="fa-ul">
+					<li class=" m-b-1"><span class="fa-li"></span><span class="fa fa-star font-blue"></span><span class="p-l-1">Advancement welcomes Suzanne Pritikin, Director of Donor Relations!</li>
+					<li class=" m-b-1"><span class="fa-li"></span><span class="fa fa-star font-blue"></span><span class="p-l-1">Read the latest OAT</span></li>
+					<li><span class="fa-li"></span><span class="fa fa-star font-blue"></span><span class="p-l-1">Don't forget: the Fun Committee's Cinco de Derby Fiesta is on May 4 at 2pm</span></li>
+					</ol>
+	
+					
+					
+					<div class="icon-position-bottom">
+						<span class="fa fa-external-link fa-2x font-blue"></span>
+						</div>
+						</div>
+				</div>
+				
+											<div class="col-md-4 col-sm-4 m-b-3">
+					<div class="shadow-box border-bottom-green p-a-3">
+						<h2 class="title">My Profile</h2>
+						Jane Doe<br/>
+						Director of Development<br/>
+						jdoe@depaul.edu<br/>
+						x2-8666
+						<div><a href="">Update Profile</a></div>
+						
+								<div class="icon-position-bottom">
+						<span class="fa fa-user fa-2x font-green"></span>
+						</div>
+						
+					</div>
+				</div>	
+		
+
+				
+			</div>
+			<div class="row">
+
+	
+			
+				
+			
+				<div class="col-md-4 col-sm-4 m-b-3">
+					<div class="shadow-box p-a-3 border-bottom-orange">
+						<h2 class="title">Birthdays</h2>
+						Tim Anderson&mdash; April 4<br/>
+						Larry McCollum&mdash;April 18<br/>
+						Paulina Kijek&mdash;April 23<br/>
+						Katlin Wachholz&mdash;April 29<br/>
+						Don't see your birthday listed? Update it in your profile!
+						<div class="icon-position-bottom">
+						<span class="fa fa-birthday-cake fa-2x font-orange"></span>
+						</div>
+				</div>
+		
+	
+			</div>
+
+					<div class="col-md-4 col-sm-4 m-b-3">
+					<div class="shadow-box border-bottom-blue hover-col">
+						<div class="">
+      <div class="photo-container" style="background-image:url(https://depaulmagazinetest2.files.wordpress.com/2018/02/35_studentgroups_01-sm_2.jpg?w=470;"></div>
+      <h2>From DePaul Magazine</h2>
+      <div class="slide">
+        <p><a href="https://depaulmagazine.com/2018/03/01/club-scene/">DePaul Magazine</a></p>
+      </div>
+    </div>
+						
+				
+					</div>
+				</div>
+				
+					<div class="col-md-4 col-sm-4 m-b-3">
+					<div class="shadow-box p-a-3 border-bottom-red">
+						<h2 class="title">I need help!</h2>
+						Who do I talk to about...?<br/>
+
+Advance access, questions, and training: Grachelli<br/>
+
+Computer, laptop, and iPad issues: adv_tech@depaul.edu<br/>
+
+Advance record updates: ads@depaul.edu<br/>
+
+ImageNow: Greg<br/>
+
+Alumni & Advancement Central Websites: Betsy<br/>
+
+Technology recommendations and purchases: John<br/>
+
+Not sure: Ron
+
+<div class="icon-position-bottom">
+						<span class="fa fa-question fa-2x font-red"></span>
+						</div>
+						
+						</div>
+						 
+				</div>
+				
+				
+			</div>
+			</main>
+		</div>
+	</div>
+</div>
+	
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+</body>
+</html>
